@@ -1,0 +1,59 @@
+					DBMS
+
+Q.1
+(a)
+Compare DBMS and early file systems bringing out the major advantages of the
+database approach. 6M
+(b) With a neat block diagram, explain the architecture of a typical DBMS. (10 .Ylarks) 10M
+(c)
+Explain different types of user friendly interfaces and types of user who typically use
+each. 4M
+OR
+Q2
+(a)
+Define the following with an example:
+(i) Weak entity type (ii) participation constraint
+(iii)cardinality ratio (iv) recursive relationship (v) specialization
+10M
+(b) Develop an ER diagram for keeping track of information about a company database
+taking into account atleast five entities. 10M
+
+
+
+1a) 1.3 ADVANTAGES OF USING THE DBMS APPROACH
+1. Controlling Redundancy: Data redundancy leads to wasted storage space, duplication of
+effort (when multiple copies of a datum need to be updated), and a higher liklihood of the
+introduction of inconsistency. On the other hand, redundancy can be used to improve
+performance of queries. 
+18CS53 DBMS Notes
+Dept. of CSE, HKBKCE Page 7
+2. Restricting Unauthorized Access: A DBMS should provide a security and authorization
+subsystem, which is used for specifying restrictions on user accounts. Common kinds of
+restrictions are to allow read-only access (no updating), or access only to a subset of the data.
+3. Providing Persistent Storage for Program Objects: Object-oriented database systems make
+it easier for complex runtime objects (e.g., lists, trees) to be saved in secondary storage so as
+to survive beyond program termination and to be retrievable at a later time.
+4. Providing Storage Structures for Efficient Query Processing: The DBMS maintains
+indexes (typically in the form of trees and/or hash tables) that are utilized to improve the
+execution time of queries and updates. (The choice of which indexes to create and maintain is
+part of physical database design and tuning and is the responsibility of the DBA. The query
+processing and optimization module is responsible for choosing an efficient query execution
+plan for each query submitted to the system.
+5. Providing Backup and Recovery: The subsystem having this responsibility ensures that
+recovery is possible in the case of a system crash during execution of one or more transactions.
+6. Providing Multiple User Interfaces: For example, query languages for casual users,
+programming language interfaces for application programmers, forms and/or command codes
+for parametric users, menu-driven interfaces for stand-alone users.
+7. Representing Complex Relationships Among Data: A DBMS should have the capability to
+represent such relationships and to retrieve related data quickly.
+8. Enforcing Integrity Constraints: Most database applications are such that the semantics (i.e.,
+meaning) of the data require that it satisfy certain restrictions in order to make sense. Perhaps
+the most fundamental constraint on a data item is its data type, which specifies the universe of
+values from which its value may be drawn. (E.g., a Grade field could be defined to be of type
+Grade_Type, which, say, we have defined as including precisely the values in the set { "A",
+"A-", "B+", ..., "F" }.
+9. Permitting Inferencing and Actions Via Rules: In a deductive database system, one may
+specify declarative rules that allow the database to infer new data! E.g., Figure out which
+students are on academic probation. Such capabilities would take the place of application
+programs that would be used to ascertain such information otherwise. Active database systems
+go one step further by allowing "active rules" that can be used to initiate actions automatically.

@@ -1,0 +1,132 @@
+				ADP
+			MODEL QUESTION PAPER SET 1:
+	MODULE-5
+
+9a)	The requests module lets you easily download files from the web without having to worry about complicated
+issues such as network errors, connection problems, and data compression.
+The requests module doesn’t come with Python, so you’ll have to install it first. From the command line,
+pip install --user requests.
+In [5]:
+Downloading a Web Page with the requests.get() Function
+The requests.get() function takes a string of a URL to download.
+By calling type() on requests.get()’s return value,it returns a Response object, which contains the response that
+the web server gave for the request.
+In [6]:
+Checking for Errors
+Out[4]:
+True
+The Project Gutenberg EBook of Romeo and Juliet, by William Shakespeare
+This eBook is for the use of anyone anywhere at no cost and with
+almost no restrictions whatsoever. You may copy it, give it away or
+re-use it under the terms of the Projec
+c = webbrowser.get('c:\\program files\\internet explorer\\iexplore.exe')
+c.open('http://www.python.org')
+
+c.open_new_tab('http://docs.python.org')
+import requests
+import requests
+res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
+type(res)
+#the request for this web page is succeeded can be done by checking the status_code attribu
+#of the Response object.
+#If it is equal to the value of requests.codes.ok, then everything went fine
+res.status_code == requests.codes.ok
+#If the request succeeded,
+#the downloaded web page is stored as a string in the Response object’s text variable.
+#the call to len(res.text) shows you that it is more than 178,000 characters long.
+len(res.text)
+#calling print(res.text[:250]) displays only the first 250 characters.
+print(res.text[:250])
+
+
+
+
+9b)i)Once you’ve imported the openpyxl module, you’ll be able to use the openpyxl.load_workbook() function.
+Enter the following into the interactive shell:
+
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+type(wb)
+Out[4]:
+openpyxl.workbook.workbook.Workbook
+
+
+ii)Getting Sheets from the Workbook
+
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+wb.sheetnames # The workbook's sheets' names.
+Out[5]:
+['Sheet1', 'Sheet2', 'Sheet3']
+
+
+sheet = wb['Sheet3'] # Get a sheet from the workbook.
+sheet
+Out[6]:
+<Worksheet "Sheet3">
+
+type(sheet)
+sheet.title # Get the sheet's title as a string.
+Out[7]:
+'Sheet3'
+
+iii)Getting Cells from the Sheets
+
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+sheet = wb['Sheet1'] # Get a sheet from the workbook.
+sheet['A1'] # Get a cell from the sheet.
+Out[10]:
+<Cell 'Sheet1'.A1>
+
+sheet['A1'].value # Get the value from the cell.
+Out[11]:
+datetime.datetime(2015, 4, 5, 13, 34, 2)
+
+c= sheet['B1'] # Get another cell from the sheet
+'Row %s, Column %s is %s' % (c.row, c.column, c.value)
+Out[17]:
+'Row 1, Column 2 is Apples'
+
+'Cell %s is %s' % (c.coordinate, c.value)
+Out[18]:
+'Cell B1 is Apples'
+
+sheet['C1'].value
+Out[19]:
+73
+
+sheet.cell(row=10, column=20)
+Out[21]:
+<Cell 'Sheet1'.T10>
+
+Getting Rows and Columns from the Sheets
+
+import openpyxl
+wb = openpyxl.load_workbook('example.xlsx')
+sheet = wb['Sheet1']
+tuple(sheet['A1':'C3']) # Get all cells from A1 to C3.
+
+Out[24]:
+((<Cell 'Sheet1'.A1>, <Cell 'Sheet1'.B1>, <Cell 'Sheet1'.C1>),
+ (<Cell 'Sheet1'.A2>, <Cell 'Sheet1'.B2>, <Cell 'Sheet1'.C2>),
+ (<Cell 'Sheet1'.A3>, <Cell 'Sheet1'.B3>, <Cell 'Sheet1'.C3>))
+
+
+9c)  Getting the Full Text from a .docx File
+
+     If you care only about the text, not the styling information, in the Word document, you can use the getText()
+function. It accepts a filename of a .docx file and returns a single string value of its text.Open a new file
+editor window and enter the following code, saving it as readDocx.py:
+
+import docx
+def getText(filename):
+ doc = docx.Document(filename)
+ fullText = []
+ for para in doc.paragraphs:
+
+ fullText.append(' ' + para.text)
+ return '\n'.join(fullText)
+
+
+
